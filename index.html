@@ -152,7 +152,7 @@ generally shoot the breeze.</p>
 </div>
 </li>
 <li><p class="first">In your root URLconf, add the following code (around where the admin code might be):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">tastypie.api</span> <span class="kn">import</span> <span class="n">API</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">tastypie.api</span> <span class="kn">import</span> <span class="n">Api</span>
 <span class="kn">from</span> <span class="nn">my_app.api.resources</span> <span class="kn">import</span> <span class="n">MyModelResource</span>
 
 <span class="n">v1_api</span> <span class="o">=</span> <span class="n">Api</span><span class="p">(</span><span class="n">api_name</span><span class="o">=</span><span class="s">&#39;v1&#39;</span><span class="p">)</span>
