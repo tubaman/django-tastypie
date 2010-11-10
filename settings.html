@@ -64,6 +64,34 @@ the <tt class="docutils literal"><span class="pre">Resource</span></tt> subclass
 </div>
 <p>Defaults to 20.</p>
 </div>
+<div class="section" id="tastypie-full-debug">
+<h2><tt class="docutils literal"><span class="pre">TASTYPIE_FULL_DEBUG</span></tt><a class="headerlink" href="#tastypie-full-debug" title="Permalink to this headline">¶</a></h2>
+<p><strong>Optional</strong></p>
+<p>This setting controls what the behavior is when an unhandled exception occurs.</p>
+<p>If set to <tt class="xref docutils literal"><span class="pre">True</span></tt> and <tt class="docutils literal"><span class="pre">settings.DEBUG</span> <span class="pre">=</span> <span class="pre">True</span></tt>, the standard Django
+technical 500 is displayed.</p>
+<p>If not set or set to <tt class="xref docutils literal"><span class="pre">False</span></tt>, Tastypie will return a serialized response.
+If <tt class="docutils literal"><span class="pre">settings.DEBUG</span></tt> is <tt class="xref docutils literal"><span class="pre">True</span></tt>, you&#8217;ll get the actual exception message plus
+a traceback. If <tt class="docutils literal"><span class="pre">settings.DEBUG</span></tt> is <tt class="xref docutils literal"><span class="pre">False</span></tt>, Tastypie will <tt class="docutils literal"><span class="pre">mail_admins</span></tt>
+and provide a canned error message (which you can override with
+<tt class="docutils literal"><span class="pre">TASTYPIE_CANNED_ERROR</span></tt>) in the response.</p>
+<p>An example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">TASTYPIE_FULL_DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>Defaults to <tt class="xref docutils literal"><span class="pre">False</span></tt>.</p>
+</div>
+<div class="section" id="tastypie-canned-error">
+<h2><tt class="docutils literal"><span class="pre">TASTYPIE_CANNED_ERROR</span></tt><a class="headerlink" href="#tastypie-canned-error" title="Permalink to this headline">¶</a></h2>
+<p><strong>Optional</strong></p>
+<p>This setting allows you to override the canned error response when an
+unhandled exception is raised and <tt class="docutils literal"><span class="pre">settings.DEBUG</span></tt> is <tt class="xref docutils literal"><span class="pre">False</span></tt>.</p>
+<p>An example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">TASTYPIE_CANNED_ERROR</span> <span class="o">=</span> <span class="s">&quot;Oops, we broke it!&quot;</span>
+</pre></div>
+</div>
+<p>Defaults to <tt class="docutils literal"><span class="pre">Sorry,</span> <span class="pre">this</span> <span class="pre">request</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">processed.</span> <span class="pre">Please</span> <span class="pre">try</span> <span class="pre">again</span> <span class="pre">later.</span></tt>.</p>
+</div>
 </div>
 
 
@@ -76,6 +104,8 @@ the <tt class="docutils literal"><span class="pre">Resource</span></tt> subclass
   <ul>
 <li><a class="reference internal" href="#">Tastypie Settings</a><ul>
 <li><a class="reference internal" href="#api-limit-per-page"><tt class="docutils literal"><span class="pre">API_LIMIT_PER_PAGE</span></tt></a></li>
+<li><a class="reference internal" href="#tastypie-full-debug"><tt class="docutils literal"><span class="pre">TASTYPIE_FULL_DEBUG</span></tt></a></li>
+<li><a class="reference internal" href="#tastypie-canned-error"><tt class="docutils literal"><span class="pre">TASTYPIE_CANNED_ERROR</span></tt></a></li>
 </ul>
 </li>
 </ul>
