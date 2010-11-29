@@ -66,6 +66,30 @@ provide additional values:</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="using-your-resource-in-regular-views">
+<h2>Using Your <tt class="docutils literal"><span class="pre">Resource</span></tt> In Regular Views<a class="headerlink" href="#using-your-resource-in-regular-views" title="Permalink to this headline">¶</a></h2>
+<p>In addition to using your resource classes to power the API, you can also use
+them to write other parts of your application, such as your views. For
+instance, if you wanted to encode user information in the page for some
+Javascript&#8217;s use, you could do the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># views.py</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render_to_response</span>
+<span class="kn">from</span> <span class="nn">myapp.api.resources</span> <span class="kn">import</span> <span class="n">UserResource</span>
+
+
+<span class="k">def</span> <span class="nf">user_detail</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+    <span class="n">ur</span> <span class="o">=</span> <span class="n">UserResource</span><span class="p">()</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">ur</span><span class="o">.</span><span class="n">obj_get_detail</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+
+    <span class="c"># Other things get prepped to go into the context then...</span>
+
+    <span class="k">return</span> <span class="n">render_to_response</span><span class="p">(</span><span class="s">&#39;myapp/user_detail.html&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="c"># Other things here.</span>
+        <span class="s">&quot;user_json&quot;</span><span class="p">:</span> <span class="n">ur</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">ur</span><span class="o">.</span><span class="n">full_dehydrate</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">user</span><span class="p">),</span> <span class="s">&#39;application/json&#39;</span><span class="p">),</span>
+    <span class="p">})</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -78,6 +102,7 @@ provide additional values:</p>
   <ul>
 <li><a class="reference internal" href="#">Tastypie Cookbook</a><ul>
 <li><a class="reference internal" href="#adding-custom-values">Adding Custom Values</a></li>
+<li><a class="reference internal" href="#using-your-resource-in-regular-views">Using Your <tt class="docutils literal"><span class="pre">Resource</span></tt> In Regular Views</a></li>
 </ul>
 </li>
 </ul>

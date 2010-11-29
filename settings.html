@@ -92,6 +92,24 @@ unhandled exception is raised and <tt class="docutils literal"><span class="pre"
 </div>
 <p>Defaults to <tt class="docutils literal"><span class="pre">Sorry,</span> <span class="pre">this</span> <span class="pre">request</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">processed.</span> <span class="pre">Please</span> <span class="pre">try</span> <span class="pre">again</span> <span class="pre">later.</span></tt>.</p>
 </div>
+<div class="section" id="tastypie-allow-missing-slash">
+<h2><tt class="docutils literal"><span class="pre">TASTYPIE_ALLOW_MISSING_SLASH</span></tt><a class="headerlink" href="#tastypie-allow-missing-slash" title="Permalink to this headline">¶</a></h2>
+<p><strong>Optional</strong></p>
+<p>This setting allows your URLs to be missing the final slash. Useful for
+integrating with other systems.</p>
+<p>You must also have <tt class="docutils literal"><span class="pre">settings.APPEND_SLASH</span> <span class="pre">=</span> <span class="pre">False</span></tt> so that Django does not
+emit HTTP 302 redirects.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This settings causes the <tt class="docutils literal"><span class="pre">Resource.get_multiple</span></tt> to fail. If you need this
+method, you will have to override the URLconf to meet your needs.</p>
+</div>
+<p>An example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">TASTYPIE_ALLOW_MISSING_SLASH</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>Defaults to <tt class="xref docutils literal"><span class="pre">False</span></tt>.</p>
+</div>
 </div>
 
 
@@ -106,6 +124,7 @@ unhandled exception is raised and <tt class="docutils literal"><span class="pre"
 <li><a class="reference internal" href="#api-limit-per-page"><tt class="docutils literal"><span class="pre">API_LIMIT_PER_PAGE</span></tt></a></li>
 <li><a class="reference internal" href="#tastypie-full-debug"><tt class="docutils literal"><span class="pre">TASTYPIE_FULL_DEBUG</span></tt></a></li>
 <li><a class="reference internal" href="#tastypie-canned-error"><tt class="docutils literal"><span class="pre">TASTYPIE_CANNED_ERROR</span></tt></a></li>
+<li><a class="reference internal" href="#tastypie-allow-missing-slash"><tt class="docutils literal"><span class="pre">TASTYPIE_ALLOW_MISSING_SLASH</span></tt></a></li>
 </ul>
 </li>
 </ul>
