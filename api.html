@@ -111,6 +111,18 @@ resource being registered is the canonical variant. Defaults to
 <dd></dd></dl>
 
 <p>Returns the canonical resource for a given <tt class="docutils literal"><span class="pre">resource_name</span></tt>.</p>
+<div class="section" id="override-urls">
+<h4><tt class="docutils literal"><span class="pre">override_urls</span></tt><a class="headerlink" href="#override-urls" title="Permalink to this headline">¶</a></h4>
+<dl class="method">
+<dt>
+<tt class="descname">Api.override_urls(self):</tt></dt>
+<dd></dd></dl>
+
+<p>A hook for adding your own URLs or overriding the default URLs. Useful for
+adding custom endpoints or overriding the built-in ones.</p>
+<p>Should return a list of individual URLconf lines (<strong>NOT</strong> wrapped in
+<tt class="docutils literal"><span class="pre">patterns</span></tt>).</p>
+</div>
 </div>
 <div class="section" id="urls">
 <h3><tt class="docutils literal"><span class="pre">urls</span></tt><a class="headerlink" href="#urls" title="Permalink to this headline">¶</a></h3>
@@ -149,7 +161,10 @@ to the <tt class="docutils literal"><span class="pre">Api</span></tt>. Useful fo
 <li><a class="reference internal" href="#api-methods"><tt class="docutils literal"><span class="pre">Api</span></tt> Methods</a><ul>
 <li><a class="reference internal" href="#register"><tt class="docutils literal"><span class="pre">register</span></tt></a></li>
 <li><a class="reference internal" href="#unregister"><tt class="docutils literal"><span class="pre">unregister</span></tt></a></li>
-<li><a class="reference internal" href="#canonical-resource-for"><tt class="docutils literal"><span class="pre">canonical_resource_for</span></tt></a></li>
+<li><a class="reference internal" href="#canonical-resource-for"><tt class="docutils literal"><span class="pre">canonical_resource_for</span></tt></a><ul>
+<li><a class="reference internal" href="#override-urls"><tt class="docutils literal"><span class="pre">override_urls</span></tt></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#urls"><tt class="docutils literal"><span class="pre">urls</span></tt></a></li>
 <li><a class="reference internal" href="#top-level"><tt class="docutils literal"><span class="pre">top_level</span></tt></a></li>
 </ul>

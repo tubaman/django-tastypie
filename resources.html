@@ -434,6 +434,30 @@ as handling exceptions better.</p>
 there is special handling to either present a message back to the user or
 return the response traveling with the exception.</p>
 </div>
+<div class="section" id="base-urls">
+<h3><tt class="docutils literal"><span class="pre">base_urls</span></tt><a class="headerlink" href="#base-urls" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt>
+<tt class="descname">Resource.base_urls(self):</tt></dt>
+<dd></dd></dl>
+
+<p>The standard URLs this <tt class="docutils literal"><span class="pre">Resource</span></tt> should respond to. These include the
+list, detail, schema &amp; multiple endpoints by default.</p>
+<p>Should return a list of individual URLconf lines (<strong>NOT</strong> wrapped in
+<tt class="docutils literal"><span class="pre">patterns</span></tt>).</p>
+</div>
+<div class="section" id="override-urls">
+<h3><tt class="docutils literal"><span class="pre">override_urls</span></tt><a class="headerlink" href="#override-urls" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt>
+<tt class="descname">Resource.override_urls(self):</tt></dt>
+<dd></dd></dl>
+
+<p>A hook for adding your own URLs or overriding the default URLs. Useful for
+adding custom endpoints or overriding the built-in ones (from <tt class="docutils literal"><span class="pre">base_urls</span></tt>).</p>
+<p>Should return a list of individual URLconf lines (<strong>NOT</strong> wrapped in
+<tt class="docutils literal"><span class="pre">patterns</span></tt>).</p>
+</div>
 <div class="section" id="urls">
 <h3><tt class="docutils literal"><span class="pre">urls</span></tt><a class="headerlink" href="#urls" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
@@ -442,7 +466,8 @@ return the response traveling with the exception.</p>
 <dd></dd></dl>
 
 <p><em>Property</em></p>
-<p>The endpoints this <tt class="docutils literal"><span class="pre">Resource</span></tt> responds to.</p>
+<p>The endpoints this <tt class="docutils literal"><span class="pre">Resource</span></tt> responds to. A combination of <tt class="docutils literal"><span class="pre">base_urls</span></tt> &amp;
+<tt class="docutils literal"><span class="pre">override_urls</span></tt>.</p>
 <p>Mostly a standard URLconf, this is suitable for either automatic use
 when registered with an <tt class="docutils literal"><span class="pre">Api</span></tt> class or for including directly in
 a URLconf should you choose to.</p>
@@ -1196,6 +1221,8 @@ relation and recreate the related data as needed.</p>
 <li><a class="reference internal" href="#advanced-filtering">Advanced Filtering</a></li>
 <li><a class="reference internal" href="#resource-methods"><tt class="docutils literal"><span class="pre">Resource</span></tt> Methods</a><ul>
 <li><a class="reference internal" href="#wrap-view"><tt class="docutils literal"><span class="pre">wrap_view</span></tt></a></li>
+<li><a class="reference internal" href="#base-urls"><tt class="docutils literal"><span class="pre">base_urls</span></tt></a></li>
+<li><a class="reference internal" href="#override-urls"><tt class="docutils literal"><span class="pre">override_urls</span></tt></a></li>
 <li><a class="reference internal" href="#urls"><tt class="docutils literal"><span class="pre">urls</span></tt></a></li>
 <li><a class="reference internal" href="#determine-format"><tt class="docutils literal"><span class="pre">determine_format</span></tt></a></li>
 <li><a class="reference internal" href="#serialize"><tt class="docutils literal"><span class="pre">serialize</span></tt></a></li>
