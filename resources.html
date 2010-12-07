@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Resources &mdash; Tastypie v0.9.0-beta documentation</title>
+    <title>Resources &mdash; Tastypie v0.9.1-beta documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.9.0-beta',
+        VERSION:     '0.9.1-beta',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Tastypie v0.9.0-beta documentation" href="index.html" />
+    <link rel="top" title="Tastypie v0.9.1-beta documentation" href="index.html" />
     <link rel="next" title="Api" href="api.html" />
     <link rel="prev" title="Tastypie Settings" href="settings.html" /> 
   </head>
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="settings.html" title="Tastypie Settings"
              accesskey="P">previous</a> |</li>
-        <li><a href="toc.html">Tastypie v0.9.0-beta documentation</a> &raquo;</li> 
+        <li><a href="toc.html">Tastypie v0.9.1-beta documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -781,11 +781,34 @@ the URI for the given bundle.</p>
 <p>Creates a unique-enough cache key.</p>
 <p>This is based off the current api_name/resource_name/args/kwargs.</p>
 </div>
+<div class="section" id="get-object-list">
+<h3><tt class="docutils literal"><span class="pre">get_object_list</span></tt><a class="headerlink" href="#get-object-list" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt>
+<tt class="descname">Resource.get_object_list(self, request):</tt></dt>
+<dd></dd></dl>
+
+<p>A hook to allow making returning the list of available objects.</p>
+<p><em>This needs to be implemented at the user level.</em></p>
+<p><tt class="docutils literal"><span class="pre">ModelResource</span></tt> includes a full working version specific to Django&#8217;s
+<tt class="docutils literal"><span class="pre">Models</span></tt>.</p>
+</div>
+<div class="section" id="apply-authorization-limits">
+<h3><tt class="docutils literal"><span class="pre">apply_authorization_limits</span></tt><a class="headerlink" href="#apply-authorization-limits" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt>
+<tt class="descname">Resource.apply_authorization_limits(self, request, object_list):</tt></dt>
+<dd></dd></dl>
+
+<p>Allows the <tt class="docutils literal"><span class="pre">Authorization</span></tt> class to further limit the object list.
+Also a hook to customize per <tt class="docutils literal"><span class="pre">Resource</span></tt>.</p>
+<p>Calls <tt class="docutils literal"><span class="pre">Authorization.apply_limits</span></tt> if available.</p>
+</div>
 <div class="section" id="obj-get-list">
 <h3><tt class="docutils literal"><span class="pre">obj_get_list</span></tt><a class="headerlink" href="#obj-get-list" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
-<tt class="descname">Resource.obj_get_list(self, filters=None, **kwargs):</tt></dt>
+<tt class="descname">Resource.obj_get_list(self, request=None, **kwargs):</tt></dt>
 <dd></dd></dl>
 
 <p>Fetches the list of objects available on the resource.</p>
@@ -797,7 +820,7 @@ the URI for the given bundle.</p>
 <h3><tt class="docutils literal"><span class="pre">cached_obj_get_list</span></tt><a class="headerlink" href="#cached-obj-get-list" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
-<tt class="descname">Resource.cached_obj_get_list(self, **kwargs):</tt></dt>
+<tt class="descname">Resource.cached_obj_get_list(self, request=None, **kwargs):</tt></dt>
 <dd></dd></dl>
 
 <p>A version of <tt class="docutils literal"><span class="pre">obj_get_list</span></tt> that uses the cache as a means to get
@@ -807,7 +830,7 @@ commonly-accessed data faster.</p>
 <h3><tt class="docutils literal"><span class="pre">obj_get</span></tt><a class="headerlink" href="#obj-get" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
-<tt class="descname">Resource.obj_get(self, **kwargs):</tt></dt>
+<tt class="descname">Resource.obj_get(self, request=None, **kwargs):</tt></dt>
 <dd></dd></dl>
 
 <p>Fetches an individual object on the resource.</p>
@@ -820,7 +843,7 @@ be found, this should raise a <tt class="docutils literal"><span class="pre">Not
 <h3><tt class="docutils literal"><span class="pre">cached_obj_get</span></tt><a class="headerlink" href="#cached-obj-get" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
-<tt class="descname">Resource.cached_obj_get(self, **kwargs):</tt></dt>
+<tt class="descname">Resource.cached_obj_get(self, request=None, **kwargs):</tt></dt>
 <dd></dd></dl>
 
 <p>A version of <tt class="docutils literal"><span class="pre">obj_get</span></tt> that uses the cache as a means to get
@@ -830,7 +853,7 @@ commonly-accessed data faster.</p>
 <h3><tt class="docutils literal"><span class="pre">obj_create</span></tt><a class="headerlink" href="#obj-create" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
-<tt class="descname">Resource.obj_create(self, bundle, **kwargs):</tt></dt>
+<tt class="descname">Resource.obj_create(self, bundle, request=None, **kwargs):</tt></dt>
 <dd></dd></dl>
 
 <p>Creates a new object based on the provided data.</p>
@@ -842,7 +865,7 @@ commonly-accessed data faster.</p>
 <h3><tt class="docutils literal"><span class="pre">obj_update</span></tt><a class="headerlink" href="#obj-update" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
-<tt class="descname">Resource.obj_update(self, bundle, **kwargs):</tt></dt>
+<tt class="descname">Resource.obj_update(self, bundle, request=None, **kwargs):</tt></dt>
 <dd></dd></dl>
 
 <p>Updates an existing object (or creates a new object) based on the
@@ -855,7 +878,7 @@ provided data.</p>
 <h3><tt class="docutils literal"><span class="pre">obj_delete_list</span></tt><a class="headerlink" href="#obj-delete-list" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
-<tt class="descname">Resource.obj_delete_list(self, **kwargs):</tt></dt>
+<tt class="descname">Resource.obj_delete_list(self, request=None, **kwargs):</tt></dt>
 <dd></dd></dl>
 
 <p>Deletes an entire list of objects.</p>
@@ -867,7 +890,7 @@ provided data.</p>
 <h3><tt class="docutils literal"><span class="pre">obj_delete</span></tt><a class="headerlink" href="#obj-delete" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
-<tt class="descname">Resource.obj_delete(self, **kwargs):</tt></dt>
+<tt class="descname">Resource.obj_delete(self, request=None, **kwargs):</tt></dt>
 <dd></dd></dl>
 
 <p>Deletes a single object.</p>
@@ -1085,7 +1108,18 @@ field name) or descending (the field name with a <tt class="docutils literal"><s
 <p>The field name should be the resource field, <strong>NOT</strong> model field.</p>
 </div>
 <div class="section" id="id5">
-<h3><tt class="docutils literal"><span class="pre">obj_get_list</span></tt><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3><tt class="docutils literal"><span class="pre">get_object_list</span></tt><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt>
+<tt class="descname">Resource.get_object_list(self, request):</tt></dt>
+<dd></dd></dl>
+
+<p>A ORM-specific implementation of <tt class="docutils literal"><span class="pre">get_object_list</span></tt>.</p>
+<p>Returns a <tt class="docutils literal"><span class="pre">QuerySet</span></tt> that may have been limited by authorization or other
+overrides.</p>
+</div>
+<div class="section" id="id6">
+<h3><tt class="docutils literal"><span class="pre">obj_get_list</span></tt><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
 <tt class="descname">Resource.obj_get_list(self, filters=None, **kwargs):</tt></dt>
@@ -1095,8 +1129,8 @@ field name) or descending (the field name with a <tt class="docutils literal"><s
 <p>Takes an optional <tt class="docutils literal"><span class="pre">filters</span></tt> dictionary, which can be used to narrow
 the query.</p>
 </div>
-<div class="section" id="id6">
-<h3><tt class="docutils literal"><span class="pre">obj_get</span></tt><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3><tt class="docutils literal"><span class="pre">obj_get</span></tt><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
 <tt class="descname">Resource.obj_get(self, **kwargs):</tt></dt>
@@ -1106,8 +1140,8 @@ the query.</p>
 <p>Takes optional <tt class="docutils literal"><span class="pre">kwargs</span></tt>, which are used to narrow the query to find
 the instance.</p>
 </div>
-<div class="section" id="id7">
-<h3><tt class="docutils literal"><span class="pre">obj_create</span></tt><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3><tt class="docutils literal"><span class="pre">obj_create</span></tt><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
 <tt class="descname">Resource.obj_create(self, bundle, **kwargs):</tt></dt>
@@ -1115,8 +1149,8 @@ the instance.</p>
 
 <p>A ORM-specific implementation of <tt class="docutils literal"><span class="pre">obj_create</span></tt>.</p>
 </div>
-<div class="section" id="id8">
-<h3><tt class="docutils literal"><span class="pre">obj_update</span></tt><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3><tt class="docutils literal"><span class="pre">obj_update</span></tt><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
 <tt class="descname">Resource.obj_update(self, bundle, **kwargs):</tt></dt>
@@ -1124,8 +1158,8 @@ the instance.</p>
 
 <p>A ORM-specific implementation of <tt class="docutils literal"><span class="pre">obj_update</span></tt>.</p>
 </div>
-<div class="section" id="id9">
-<h3><tt class="docutils literal"><span class="pre">obj_delete_list</span></tt><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3><tt class="docutils literal"><span class="pre">obj_delete_list</span></tt><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
 <tt class="descname">Resource.obj_delete_list(self, **kwargs):</tt></dt>
@@ -1134,8 +1168,8 @@ the instance.</p>
 <p>A ORM-specific implementation of <tt class="docutils literal"><span class="pre">obj_delete_list</span></tt>.</p>
 <p>Takes optional <tt class="docutils literal"><span class="pre">kwargs</span></tt>, which can be used to narrow the query.</p>
 </div>
-<div class="section" id="id10">
-<h3><tt class="docutils literal"><span class="pre">obj_delete</span></tt><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3><tt class="docutils literal"><span class="pre">obj_delete</span></tt><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
 <tt class="descname">Resource.obj_delete(self, **kwargs):</tt></dt>
@@ -1158,8 +1192,8 @@ main instance, which is why this isn&#8217;t a part of the main <tt class="docut
 <p>Currently slightly inefficient in that it will clear out the whole
 relation and recreate the related data as needed.</p>
 </div>
-<div class="section" id="id11">
-<h3><tt class="docutils literal"><span class="pre">get_resource_uri</span></tt><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3><tt class="docutils literal"><span class="pre">get_resource_uri</span></tt><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt>
 <tt class="descname">Resource.get_resource_uri(self, bundle_or_obj):</tt></dt>
@@ -1250,6 +1284,8 @@ relation and recreate the related data as needed.</p>
 <li><a class="reference internal" href="#build-schema"><tt class="docutils literal"><span class="pre">build_schema</span></tt></a></li>
 <li><a class="reference internal" href="#dehydrate-resource-uri"><tt class="docutils literal"><span class="pre">dehydrate_resource_uri</span></tt></a></li>
 <li><a class="reference internal" href="#generate-cache-key"><tt class="docutils literal"><span class="pre">generate_cache_key</span></tt></a></li>
+<li><a class="reference internal" href="#get-object-list"><tt class="docutils literal"><span class="pre">get_object_list</span></tt></a></li>
+<li><a class="reference internal" href="#apply-authorization-limits"><tt class="docutils literal"><span class="pre">apply_authorization_limits</span></tt></a></li>
 <li><a class="reference internal" href="#obj-get-list"><tt class="docutils literal"><span class="pre">obj_get_list</span></tt></a></li>
 <li><a class="reference internal" href="#cached-obj-get-list"><tt class="docutils literal"><span class="pre">cached_obj_get_list</span></tt></a></li>
 <li><a class="reference internal" href="#obj-get"><tt class="docutils literal"><span class="pre">obj_get</span></tt></a></li>
@@ -1277,14 +1313,15 @@ relation and recreate the related data as needed.</p>
 <li><a class="reference internal" href="#get-fields"><tt class="docutils literal"><span class="pre">get_fields</span></tt></a></li>
 <li><a class="reference internal" href="#id3"><tt class="docutils literal"><span class="pre">build_filters</span></tt></a></li>
 <li><a class="reference internal" href="#id4"><tt class="docutils literal"><span class="pre">apply_sorting</span></tt></a></li>
-<li><a class="reference internal" href="#id5"><tt class="docutils literal"><span class="pre">obj_get_list</span></tt></a></li>
-<li><a class="reference internal" href="#id6"><tt class="docutils literal"><span class="pre">obj_get</span></tt></a></li>
-<li><a class="reference internal" href="#id7"><tt class="docutils literal"><span class="pre">obj_create</span></tt></a></li>
-<li><a class="reference internal" href="#id8"><tt class="docutils literal"><span class="pre">obj_update</span></tt></a></li>
-<li><a class="reference internal" href="#id9"><tt class="docutils literal"><span class="pre">obj_delete_list</span></tt></a></li>
-<li><a class="reference internal" href="#id10"><tt class="docutils literal"><span class="pre">obj_delete</span></tt></a></li>
+<li><a class="reference internal" href="#id5"><tt class="docutils literal"><span class="pre">get_object_list</span></tt></a></li>
+<li><a class="reference internal" href="#id6"><tt class="docutils literal"><span class="pre">obj_get_list</span></tt></a></li>
+<li><a class="reference internal" href="#id7"><tt class="docutils literal"><span class="pre">obj_get</span></tt></a></li>
+<li><a class="reference internal" href="#id8"><tt class="docutils literal"><span class="pre">obj_create</span></tt></a></li>
+<li><a class="reference internal" href="#id9"><tt class="docutils literal"><span class="pre">obj_update</span></tt></a></li>
+<li><a class="reference internal" href="#id10"><tt class="docutils literal"><span class="pre">obj_delete_list</span></tt></a></li>
+<li><a class="reference internal" href="#id11"><tt class="docutils literal"><span class="pre">obj_delete</span></tt></a></li>
 <li><a class="reference internal" href="#save-m2m"><tt class="docutils literal"><span class="pre">save_m2m</span></tt></a></li>
-<li><a class="reference internal" href="#id11"><tt class="docutils literal"><span class="pre">get_resource_uri</span></tt></a></li>
+<li><a class="reference internal" href="#id12"><tt class="docutils literal"><span class="pre">get_resource_uri</span></tt></a></li>
 </ul>
 </li>
 </ul>
@@ -1331,7 +1368,7 @@ relation and recreate the related data as needed.</p>
         <li class="right" >
           <a href="settings.html" title="Tastypie Settings"
              >previous</a> |</li>
-        <li><a href="toc.html">Tastypie v0.9.0-beta documentation</a> &raquo;</li> 
+        <li><a href="toc.html">Tastypie v0.9.1-beta documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
