@@ -90,6 +90,55 @@ Javascript&#8217;s use, you could do the following:</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="using-non-pk-data-for-your-urls">
+<h2>Using Non-PK Data For Your URLs<a class="headerlink" href="#using-non-pk-data-for-your-urls" title="Permalink to this headline">¶</a></h2>
+<p>By convention, <tt class="docutils literal"><span class="pre">ModelResource``s</span> <span class="pre">usually</span> <span class="pre">expose</span> <span class="pre">the</span> <span class="pre">detail</span> <span class="pre">endpoints</span> <span class="pre">utilizing</span>
+<span class="pre">the</span> <span class="pre">primary</span> <span class="pre">key</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">``Model</span></tt> they represent. However, this is not a strict
+requirement. Each URL can take other named URLconf parameters that can be used
+for the lookup.</p>
+<p>For example, if you want to expose <tt class="docutils literal"><span class="pre">User</span></tt> resources by username, you can do
+something like the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># myapp/api/resources.py</span>
+<span class="k">class</span> <span class="nc">UserResource</span><span class="p">(</span><span class="n">ModelResource</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">override_urls</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">url</span><span class="p">(</span><span class="s">r&quot;^(?P&lt;resource_name&gt;</span><span class="si">%s</span><span class="s">)/(?P&lt;username&gt;[\w\d_.-]+)/$&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrap_view</span><span class="p">(</span><span class="s">&#39;dispatch_detail&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;api_dispatch_detail&quot;</span><span class="p">),</span>
+        <span class="p">]</span>
+</pre></div>
+</div>
+<p>The added URLconf matches before the standard URLconf included by default &amp;
+matches on the username provided in the URL.</p>
+<p>You can also do &#8220;nested resources&#8221; (resources within another related resource)
+by lightly overriding the <tt class="docutils literal"><span class="pre">dispatch</span></tt> method in a similar way:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># myapp/api/resources.py</span>
+<span class="k">class</span> <span class="nc">EntryResource</span><span class="p">(</span><span class="n">ModelResource</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">UserResource</span><span class="p">,</span> <span class="s">&#39;user&#39;</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="n">resource_name</span> <span class="o">=</span> <span class="s">&#39;entry&#39;</span>
+
+    <span class="k">def</span> <span class="nf">dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request_type</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;username&#39;</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">EntryResource</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">dispatch</span><span class="p">(</span><span class="n">request_type</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="c"># urls.py</span>
+<span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">myapp.api</span> <span class="kn">import</span> <span class="n">EntryResource</span>
+
+<span class="n">entry_resource</span> <span class="o">=</span> <span class="n">EntryResource</span><span class="p">()</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="c"># The normal jazz here, then...</span>
+    <span class="p">(</span><span class="s">r&#39;^api/(?P&lt;username&gt;\w+)/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">entry_resource</span><span class="o">.</span><span class="n">urls</span><span class="p">)),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -103,6 +152,7 @@ Javascript&#8217;s use, you could do the following:</p>
 <li><a class="reference internal" href="#">Tastypie Cookbook</a><ul>
 <li><a class="reference internal" href="#adding-custom-values">Adding Custom Values</a></li>
 <li><a class="reference internal" href="#using-your-resource-in-regular-views">Using Your <tt class="docutils literal"><span class="pre">Resource</span></tt> In Regular Views</a></li>
+<li><a class="reference internal" href="#using-non-pk-data-for-your-urls">Using Non-PK Data For Your URLs</a></li>
 </ul>
 </li>
 </ul>
