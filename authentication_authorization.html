@@ -136,7 +136,7 @@ required method and one optional method:</p>
 
 <span class="k">class</span> <span class="nc">SillyAuthentication</span><span class="p">(</span><span class="n">NoCache</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">is_authenticated</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s">&#39;daniel&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">[</span><span class="s">&#39;user&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">username</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s">&#39;daniel&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">:</span>
           <span class="k">return</span> <span class="bp">True</span>
 
         <span class="k">return</span> <span class="bp">False</span>
@@ -147,15 +147,15 @@ required method and one optional method:</p>
 
 <span class="k">class</span> <span class="nc">SillyAuthorization</span><span class="p">(</span><span class="n">Authorization</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">is_authorized</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">[</span><span class="s">&#39;user&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">date_joined</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2010</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">date_joined</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2010</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">False</span>
 
     <span class="c"># Optional but useful for advanced limiting, such as per user.</span>
     <span class="k">def</span> <span class="nf">apply_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">object_list</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">request</span> <span class="ow">and</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;user&#39;</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">object_list</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">author__username</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">[</span><span class="s">&#39;user&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&#39;user&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">object_list</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">author__username</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">object_list</span><span class="o">.</span><span class="n">none</span><span class="p">()</span>
 </pre></div>
