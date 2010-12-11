@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Tastypie v0.9.1-beta documentation" href="index.html" />
-    <link rel="next" title="Caching" href="caching.html" />
+    <link rel="next" title="Validation" href="validation.html" />
     <link rel="prev" title="Api" href="api.html" /> 
   </head>
   <body>
@@ -34,7 +34,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="caching.html" title="Caching"
+          <a href="validation.html" title="Validation"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="api.html" title="Api"
@@ -134,7 +134,7 @@ required method and one optional method:</p>
 <span class="kn">from</span> <span class="nn">tastypie.authorization</span> <span class="kn">import</span> <span class="n">Authorization</span>
 
 
-<span class="k">class</span> <span class="nc">SillyAuthentication</span><span class="p">(</span><span class="n">NoCache</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">SillyAuthentication</span><span class="p">(</span><span class="n">Authentication</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">is_authenticated</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="s">&#39;daniel&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">:</span>
           <span class="k">return</span> <span class="bp">True</span>
@@ -198,8 +198,8 @@ above criteria will only be able to access their own records.</p>
   <p class="topless"><a href="api.html"
                         title="previous chapter">Api</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="caching.html"
-                        title="next chapter">Caching</a></p>
+  <p class="topless"><a href="validation.html"
+                        title="next chapter">Validation</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/authentication_authorization.txt"
@@ -229,7 +229,7 @@ above criteria will only be able to access their own records.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="caching.html" title="Caching"
+          <a href="validation.html" title="Validation"
              >next</a> |</li>
         <li class="right" >
           <a href="api.html" title="Api"

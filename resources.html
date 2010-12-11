@@ -235,6 +235,12 @@ Controls which authentication class the <tt class="docutils literal"><span class
 Controls which authorization class the <tt class="docutils literal"><span class="pre">Resource</span></tt> should use. Default is
 <tt class="docutils literal"><span class="pre">tastypie.authorization.ReadOnlyAuthorization()</span></tt>.</blockquote>
 </div>
+<div class="section" id="validation">
+<h3><tt class="docutils literal"><span class="pre">validation</span></tt><a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+Controls which validation class the <tt class="docutils literal"><span class="pre">Resource</span></tt> should use. Default is
+<tt class="docutils literal"><span class="pre">tastypie.validation.Validation()</span></tt>.</blockquote>
+</div>
 <div class="section" id="cache">
 <h3><tt class="docutils literal"><span class="pre">cache</span></tt><a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h3>
 <blockquote>
@@ -424,8 +430,8 @@ data sources, such as search results, files, other data, etc.</p>
 <div class="section" id="wrap-view">
 <h3><tt class="docutils literal"><span class="pre">wrap_view</span></tt><a class="headerlink" href="#wrap-view" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.wrap_view(self, view):</tt></dt>
+<dt id="Resource.wrap_view">
+<tt class="descclassname">Resource.</tt><tt class="descname">wrap_view</tt><big>(</big><em>self</em>, <em>view</em><big>)</big><a class="headerlink" href="#Resource.wrap_view" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Wraps methods so they can be called in a more functional way as well
@@ -437,8 +443,8 @@ return the response traveling with the exception.</p>
 <div class="section" id="base-urls">
 <h3><tt class="docutils literal"><span class="pre">base_urls</span></tt><a class="headerlink" href="#base-urls" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.base_urls(self):</tt></dt>
+<dt id="Resource.base_urls">
+<tt class="descclassname">Resource.</tt><tt class="descname">base_urls</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#Resource.base_urls" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>The standard URLs this <tt class="docutils literal"><span class="pre">Resource</span></tt> should respond to. These include the
@@ -449,8 +455,8 @@ list, detail, schema &amp; multiple endpoints by default.</p>
 <div class="section" id="override-urls">
 <h3><tt class="docutils literal"><span class="pre">override_urls</span></tt><a class="headerlink" href="#override-urls" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.override_urls(self):</tt></dt>
+<dt id="Resource.override_urls">
+<tt class="descclassname">Resource.</tt><tt class="descname">override_urls</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#Resource.override_urls" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A hook for adding your own URLs or overriding the default URLs. Useful for
@@ -461,8 +467,8 @@ adding custom endpoints or overriding the built-in ones (from <tt class="docutil
 <div class="section" id="urls">
 <h3><tt class="docutils literal"><span class="pre">urls</span></tt><a class="headerlink" href="#urls" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.urls(self):</tt></dt>
+<dt id="Resource.urls">
+<tt class="descclassname">Resource.</tt><tt class="descname">urls</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#Resource.urls" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p><em>Property</em></p>
@@ -475,8 +481,8 @@ a URLconf should you choose to.</p>
 <div class="section" id="determine-format">
 <h3><tt class="docutils literal"><span class="pre">determine_format</span></tt><a class="headerlink" href="#determine-format" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.determine_format(self, request):</tt></dt>
+<dt id="Resource.determine_format">
+<tt class="descclassname">Resource.</tt><tt class="descname">determine_format</tt><big>(</big><em>self</em>, <em>request</em><big>)</big><a class="headerlink" href="#Resource.determine_format" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Used to determine the desired format.</p>
@@ -486,8 +492,8 @@ as a point of extension.</p>
 <div class="section" id="serialize">
 <h3><tt class="docutils literal"><span class="pre">serialize</span></tt><a class="headerlink" href="#serialize" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.serialize(self, request, data, format, options=None):</tt></dt>
+<dt id="Resource.serialize">
+<tt class="descclassname">Resource.</tt><tt class="descname">serialize</tt><big>(</big><em>self</em>, <em>request</em>, <em>data</em>, <em>format</em>, <em>options=None</em><big>)</big><a class="headerlink" href="#Resource.serialize" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Given a request, data and a desired format, produces a serialized
@@ -497,8 +503,8 @@ version suitable for transfer over the wire.</p>
 <div class="section" id="deserialize">
 <h3><tt class="docutils literal"><span class="pre">deserialize</span></tt><a class="headerlink" href="#deserialize" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.deserialize(self, request, data, format='application/json'):</tt></dt>
+<dt id="Resource.deserialize">
+<tt class="descclassname">Resource.</tt><tt class="descname">deserialize</tt><big>(</big><em>self</em>, <em>request</em>, <em>data</em>, <em>format='application/json'</em><big>)</big><a class="headerlink" href="#Resource.deserialize" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Given a request, data and a format, deserializes the given data.</p>
@@ -509,8 +515,8 @@ falling back to <tt class="docutils literal"><span class="pre">application/json<
 <div class="section" id="dispatch-list">
 <h3><tt class="docutils literal"><span class="pre">dispatch_list</span></tt><a class="headerlink" href="#dispatch-list" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.dispatch_list(self, request, **kwargs):</tt></dt>
+<dt id="Resource.dispatch_list">
+<tt class="descclassname">Resource.</tt><tt class="descname">dispatch_list</tt><big>(</big><em>self</em>, <em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.dispatch_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A view for handling the various HTTP methods (GET/POST/PUT/DELETE) over
@@ -520,8 +526,8 @@ the entire list of resources.</p>
 <div class="section" id="dispatch-detail">
 <h3><tt class="docutils literal"><span class="pre">dispatch_detail</span></tt><a class="headerlink" href="#dispatch-detail" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.dispatch_detail(self, request, **kwargs):</tt></dt>
+<dt id="Resource.dispatch_detail">
+<tt class="descclassname">Resource.</tt><tt class="descname">dispatch_detail</tt><big>(</big><em>self</em>, <em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.dispatch_detail" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A view for handling the various HTTP methods (GET/POST/PUT/DELETE) on
@@ -531,8 +537,8 @@ a single resource.</p>
 <div class="section" id="dispatch">
 <h3><tt class="docutils literal"><span class="pre">dispatch</span></tt><a class="headerlink" href="#dispatch" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.dispatch(self, request_type, request, **kwargs):</tt></dt>
+<dt id="Resource.dispatch">
+<tt class="descclassname">Resource.</tt><tt class="descname">dispatch</tt><big>(</big><em>self</em>, <em>request_type</em>, <em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.dispatch" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Handles the common operations (allowed HTTP method, authentication,
@@ -541,8 +547,8 @@ throttling, method lookup) surrounding most CRUD interactions.</p>
 <div class="section" id="remove-api-resource-names">
 <h3><tt class="docutils literal"><span class="pre">remove_api_resource_names</span></tt><a class="headerlink" href="#remove-api-resource-names" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.remove_api_resource_names(self, url_dict):</tt></dt>
+<dt id="Resource.remove_api_resource_names">
+<tt class="descclassname">Resource.</tt><tt class="descname">remove_api_resource_names</tt><big>(</big><em>self</em>, <em>url_dict</em><big>)</big><a class="headerlink" href="#Resource.remove_api_resource_names" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Given a dictionary of regex matches from a URLconf, removes
@@ -556,8 +562,8 @@ for data lookup. For example:</p>
 <div class="section" id="method-check">
 <h3><tt class="docutils literal"><span class="pre">method_check</span></tt><a class="headerlink" href="#method-check" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.method_check(self, request, allowed=None):</tt></dt>
+<dt id="Resource.method_check">
+<tt class="descclassname">Resource.</tt><tt class="descname">method_check</tt><big>(</big><em>self</em>, <em>request</em>, <em>allowed=None</em><big>)</big><a class="headerlink" href="#Resource.method_check" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Ensures that the HTTP method used on the request is allowed to be
@@ -579,8 +585,8 @@ HTTP methods to check against. Usually, this looks like:</p>
 <div class="section" id="is-authorized">
 <h3><tt class="docutils literal"><span class="pre">is_authorized</span></tt><a class="headerlink" href="#is-authorized" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.is_authorized(self, request, object=None):</tt></dt>
+<dt id="Resource.is_authorized">
+<tt class="descclassname">Resource.</tt><tt class="descname">is_authorized</tt><big>(</big><em>self</em>, <em>request</em>, <em>object=None</em><big>)</big><a class="headerlink" href="#Resource.is_authorized" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Handles checking of permissions to see if the user has authorization
@@ -591,8 +597,8 @@ checking.</p>
 <div class="section" id="is-authenticated">
 <h3><tt class="docutils literal"><span class="pre">is_authenticated</span></tt><a class="headerlink" href="#is-authenticated" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.is_authenticated(self, request):</tt></dt>
+<dt id="Resource.is_authenticated">
+<tt class="descclassname">Resource.</tt><tt class="descname">is_authenticated</tt><big>(</big><em>self</em>, <em>request</em><big>)</big><a class="headerlink" href="#Resource.is_authenticated" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Handles checking if the user is authenticated and dealing with
@@ -603,8 +609,8 @@ unauthenticated users.</p>
 <div class="section" id="throttle-check">
 <h3><tt class="docutils literal"><span class="pre">throttle_check</span></tt><a class="headerlink" href="#throttle-check" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.throttle_check(self, request):</tt></dt>
+<dt id="Resource.throttle_check">
+<tt class="descclassname">Resource.</tt><tt class="descname">throttle_check</tt><big>(</big><em>self</em>, <em>request</em><big>)</big><a class="headerlink" href="#Resource.throttle_check" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Handles checking if the user should be throttled.</p>
@@ -614,8 +620,8 @@ unauthenticated users.</p>
 <div class="section" id="log-throttled-access">
 <h3><tt class="docutils literal"><span class="pre">log_throttled_access</span></tt><a class="headerlink" href="#log-throttled-access" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.log_throttled_access(self, request):</tt></dt>
+<dt id="Resource.log_throttled_access">
+<tt class="descclassname">Resource.</tt><tt class="descname">log_throttled_access</tt><big>(</big><em>self</em>, <em>request</em><big>)</big><a class="headerlink" href="#Resource.log_throttled_access" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Handles the recording of the user&#8217;s access for throttling purposes.</p>
@@ -625,8 +631,8 @@ unauthenticated users.</p>
 <div class="section" id="build-bundle">
 <h3><tt class="docutils literal"><span class="pre">build_bundle</span></tt><a class="headerlink" href="#build-bundle" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.build_bundle(self, obj=None, data=None):</tt></dt>
+<dt id="Resource.build_bundle">
+<tt class="descclassname">Resource.</tt><tt class="descname">build_bundle</tt><big>(</big><em>self</em>, <em>obj=None</em>, <em>data=None</em><big>)</big><a class="headerlink" href="#Resource.build_bundle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Given either an object, a data dictionary or both, builds a <tt class="docutils literal"><span class="pre">Bundle</span></tt>
@@ -638,8 +644,8 @@ for use throughout the <tt class="docutils literal"><span class="pre">dehydrate/
 <div class="section" id="build-filters">
 <h3><tt class="docutils literal"><span class="pre">build_filters</span></tt><a class="headerlink" href="#build-filters" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.build_filters(self, filters=None):</tt></dt>
+<dt id="Resource.build_filters">
+<tt class="descclassname">Resource.</tt><tt class="descname">build_filters</tt><big>(</big><em>self</em>, <em>filters=None</em><big>)</big><a class="headerlink" href="#Resource.build_filters" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Allows for the filtering of applicable objects.</p>
@@ -650,8 +656,8 @@ for use throughout the <tt class="docutils literal"><span class="pre">dehydrate/
 <div class="section" id="apply-sorting">
 <h3><tt class="docutils literal"><span class="pre">apply_sorting</span></tt><a class="headerlink" href="#apply-sorting" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.apply_sorting(self, obj_list, options=None):</tt></dt>
+<dt id="Resource.apply_sorting">
+<tt class="descclassname">Resource.</tt><tt class="descname">apply_sorting</tt><big>(</big><em>self</em>, <em>obj_list</em>, <em>options=None</em><big>)</big><a class="headerlink" href="#Resource.apply_sorting" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Allows for the sorting of objects being returned.</p>
@@ -662,8 +668,8 @@ for use throughout the <tt class="docutils literal"><span class="pre">dehydrate/
 <div class="section" id="get-resource-uri">
 <h3><tt class="docutils literal"><span class="pre">get_resource_uri</span></tt><a class="headerlink" href="#get-resource-uri" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.get_resource_uri(self, bundle_or_obj):</tt></dt>
+<dt id="Resource.get_resource_uri">
+<tt class="descclassname">Resource.</tt><tt class="descname">get_resource_uri</tt><big>(</big><em>self</em>, <em>bundle_or_obj</em><big>)</big><a class="headerlink" href="#Resource.get_resource_uri" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p><em>This needs to be implemented at the user level.</em></p>
@@ -676,8 +682,8 @@ be needed.</p>
 <div class="section" id="get-resource-list-uri">
 <h3><tt class="docutils literal"><span class="pre">get_resource_list_uri</span></tt><a class="headerlink" href="#get-resource-list-uri" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.get_resource_list_uri(self):</tt></dt>
+<dt id="Resource.get_resource_list_uri">
+<tt class="descclassname">Resource.</tt><tt class="descname">get_resource_list_uri</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#Resource.get_resource_list_uri" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Returns a URL specific to this resource&#8217;s list endpoint.</p>
@@ -685,8 +691,8 @@ be needed.</p>
 <div class="section" id="get-via-uri">
 <h3><tt class="docutils literal"><span class="pre">get_via_uri</span></tt><a class="headerlink" href="#get-via-uri" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.get_via_uri(self, uri):</tt></dt>
+<dt id="Resource.get_via_uri">
+<tt class="descclassname">Resource.</tt><tt class="descname">get_via_uri</tt><big>(</big><em>self</em>, <em>uri</em><big>)</big><a class="headerlink" href="#Resource.get_via_uri" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>This pulls apart the salient bits of the URI and populates the
@@ -697,8 +703,8 @@ simply override this method.</p>
 <div class="section" id="full-dehydrate">
 <h3><tt class="docutils literal"><span class="pre">full_dehydrate</span></tt><a class="headerlink" href="#full-dehydrate" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.full_dehydrate(self, obj):</tt></dt>
+<dt id="Resource.full_dehydrate">
+<tt class="descclassname">Resource.</tt><tt class="descname">full_dehydrate</tt><big>(</big><em>self</em>, <em>obj</em><big>)</big><a class="headerlink" href="#Resource.full_dehydrate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Given an object instance, extract the information from it to populate
@@ -707,8 +713,8 @@ the resource.</p>
 <div class="section" id="id1">
 <h3><tt class="docutils literal"><span class="pre">dehydrate</span></tt><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.dehydrate(self, bundle):</tt></dt>
+<dt id="Resource.dehydrate">
+<tt class="descclassname">Resource.</tt><tt class="descname">dehydrate</tt><big>(</big><em>self</em>, <em>bundle</em><big>)</big><a class="headerlink" href="#Resource.dehydrate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A hook to allow a final manipulation of data once all fields/methods
@@ -720,8 +726,8 @@ to annotate on additional data.</p>
 <div class="section" id="full-hydrate">
 <h3><tt class="docutils literal"><span class="pre">full_hydrate</span></tt><a class="headerlink" href="#full-hydrate" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.full_hydrate(self, bundle):</tt></dt>
+<dt id="Resource.full_hydrate">
+<tt class="descclassname">Resource.</tt><tt class="descname">full_hydrate</tt><big>(</big><em>self</em>, <em>bundle</em><big>)</big><a class="headerlink" href="#Resource.full_hydrate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Given a populated bundle, distill it and turn it back into
@@ -730,8 +736,8 @@ a full-fledged object instance.</p>
 <div class="section" id="id2">
 <h3><tt class="docutils literal"><span class="pre">hydrate</span></tt><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.hydrate(self, bundle):</tt></dt>
+<dt id="Resource.hydrate">
+<tt class="descclassname">Resource.</tt><tt class="descname">hydrate</tt><big>(</big><em>self</em>, <em>bundle</em><big>)</big><a class="headerlink" href="#Resource.hydrate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A hook to allow a final manipulation of data once all fields/methods
@@ -743,8 +749,8 @@ to annotate on additional data.</p>
 <div class="section" id="hydrate-m2m">
 <h3><tt class="docutils literal"><span class="pre">hydrate_m2m</span></tt><a class="headerlink" href="#hydrate-m2m" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.hydrate_m2m(self, bundle):</tt></dt>
+<dt id="Resource.hydrate_m2m">
+<tt class="descclassname">Resource.</tt><tt class="descname">hydrate_m2m</tt><big>(</big><em>self</em>, <em>bundle</em><big>)</big><a class="headerlink" href="#Resource.hydrate_m2m" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Populate the ManyToMany data on the instance.</p>
@@ -752,8 +758,8 @@ to annotate on additional data.</p>
 <div class="section" id="build-schema">
 <h3><tt class="docutils literal"><span class="pre">build_schema</span></tt><a class="headerlink" href="#build-schema" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.build_schema(self):</tt></dt>
+<dt id="Resource.build_schema">
+<tt class="descclassname">Resource.</tt><tt class="descname">build_schema</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#Resource.build_schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Returns a dictionary of all the fields on the resource and some
@@ -763,8 +769,8 @@ properties about those fields.</p>
 <div class="section" id="dehydrate-resource-uri">
 <h3><tt class="docutils literal"><span class="pre">dehydrate_resource_uri</span></tt><a class="headerlink" href="#dehydrate-resource-uri" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.dehydrate_resource_uri(self, bundle):</tt></dt>
+<dt id="Resource.dehydrate_resource_uri">
+<tt class="descclassname">Resource.</tt><tt class="descname">dehydrate_resource_uri</tt><big>(</big><em>self</em>, <em>bundle</em><big>)</big><a class="headerlink" href="#Resource.dehydrate_resource_uri" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>For the automatically included <tt class="docutils literal"><span class="pre">resource_uri</span></tt> field, dehydrate
@@ -774,8 +780,8 @@ the URI for the given bundle.</p>
 <div class="section" id="generate-cache-key">
 <h3><tt class="docutils literal"><span class="pre">generate_cache_key</span></tt><a class="headerlink" href="#generate-cache-key" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.generate_cache_key(self, *args, **kwargs):</tt></dt>
+<dt id="Resource.generate_cache_key">
+<tt class="descclassname">Resource.</tt><tt class="descname">generate_cache_key</tt><big>(</big><em>self</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.generate_cache_key" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Creates a unique-enough cache key.</p>
@@ -784,8 +790,8 @@ the URI for the given bundle.</p>
 <div class="section" id="get-object-list">
 <h3><tt class="docutils literal"><span class="pre">get_object_list</span></tt><a class="headerlink" href="#get-object-list" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.get_object_list(self, request):</tt></dt>
+<dt id="Resource.get_object_list">
+<tt class="descclassname">Resource.</tt><tt class="descname">get_object_list</tt><big>(</big><em>self</em>, <em>request</em><big>)</big><a class="headerlink" href="#Resource.get_object_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A hook to allow making returning the list of available objects.</p>
@@ -796,8 +802,8 @@ the URI for the given bundle.</p>
 <div class="section" id="apply-authorization-limits">
 <h3><tt class="docutils literal"><span class="pre">apply_authorization_limits</span></tt><a class="headerlink" href="#apply-authorization-limits" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.apply_authorization_limits(self, request, object_list):</tt></dt>
+<dt id="Resource.apply_authorization_limits">
+<tt class="descclassname">Resource.</tt><tt class="descname">apply_authorization_limits</tt><big>(</big><em>self</em>, <em>request</em>, <em>object_list</em><big>)</big><a class="headerlink" href="#Resource.apply_authorization_limits" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Allows the <tt class="docutils literal"><span class="pre">Authorization</span></tt> class to further limit the object list.
@@ -807,8 +813,8 @@ Also a hook to customize per <tt class="docutils literal"><span class="pre">Reso
 <div class="section" id="obj-get-list">
 <h3><tt class="docutils literal"><span class="pre">obj_get_list</span></tt><a class="headerlink" href="#obj-get-list" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.obj_get_list(self, request=None, **kwargs):</tt></dt>
+<dt id="Resource.obj_get_list">
+<tt class="descclassname">Resource.</tt><tt class="descname">obj_get_list</tt><big>(</big><em>self</em>, <em>request=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.obj_get_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Fetches the list of objects available on the resource.</p>
@@ -819,8 +825,8 @@ Also a hook to customize per <tt class="docutils literal"><span class="pre">Reso
 <div class="section" id="cached-obj-get-list">
 <h3><tt class="docutils literal"><span class="pre">cached_obj_get_list</span></tt><a class="headerlink" href="#cached-obj-get-list" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.cached_obj_get_list(self, request=None, **kwargs):</tt></dt>
+<dt id="Resource.cached_obj_get_list">
+<tt class="descclassname">Resource.</tt><tt class="descname">cached_obj_get_list</tt><big>(</big><em>self</em>, <em>request=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.cached_obj_get_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A version of <tt class="docutils literal"><span class="pre">obj_get_list</span></tt> that uses the cache as a means to get
@@ -829,8 +835,8 @@ commonly-accessed data faster.</p>
 <div class="section" id="obj-get">
 <h3><tt class="docutils literal"><span class="pre">obj_get</span></tt><a class="headerlink" href="#obj-get" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.obj_get(self, request=None, **kwargs):</tt></dt>
+<dt id="Resource.obj_get">
+<tt class="descclassname">Resource.</tt><tt class="descname">obj_get</tt><big>(</big><em>self</em>, <em>request=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.obj_get" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Fetches an individual object on the resource.</p>
@@ -842,8 +848,8 @@ be found, this should raise a <tt class="docutils literal"><span class="pre">Not
 <div class="section" id="cached-obj-get">
 <h3><tt class="docutils literal"><span class="pre">cached_obj_get</span></tt><a class="headerlink" href="#cached-obj-get" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.cached_obj_get(self, request=None, **kwargs):</tt></dt>
+<dt id="Resource.cached_obj_get">
+<tt class="descclassname">Resource.</tt><tt class="descname">cached_obj_get</tt><big>(</big><em>self</em>, <em>request=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.cached_obj_get" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A version of <tt class="docutils literal"><span class="pre">obj_get</span></tt> that uses the cache as a means to get
@@ -852,8 +858,8 @@ commonly-accessed data faster.</p>
 <div class="section" id="obj-create">
 <h3><tt class="docutils literal"><span class="pre">obj_create</span></tt><a class="headerlink" href="#obj-create" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.obj_create(self, bundle, request=None, **kwargs):</tt></dt>
+<dt id="Resource.obj_create">
+<tt class="descclassname">Resource.</tt><tt class="descname">obj_create</tt><big>(</big><em>self</em>, <em>bundle</em>, <em>request=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.obj_create" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Creates a new object based on the provided data.</p>
@@ -864,8 +870,8 @@ commonly-accessed data faster.</p>
 <div class="section" id="obj-update">
 <h3><tt class="docutils literal"><span class="pre">obj_update</span></tt><a class="headerlink" href="#obj-update" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.obj_update(self, bundle, request=None, **kwargs):</tt></dt>
+<dt id="Resource.obj_update">
+<tt class="descclassname">Resource.</tt><tt class="descname">obj_update</tt><big>(</big><em>self</em>, <em>bundle</em>, <em>request=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.obj_update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Updates an existing object (or creates a new object) based on the
@@ -877,8 +883,8 @@ provided data.</p>
 <div class="section" id="obj-delete-list">
 <h3><tt class="docutils literal"><span class="pre">obj_delete_list</span></tt><a class="headerlink" href="#obj-delete-list" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.obj_delete_list(self, request=None, **kwargs):</tt></dt>
+<dt id="Resource.obj_delete_list">
+<tt class="descclassname">Resource.</tt><tt class="descname">obj_delete_list</tt><big>(</big><em>self</em>, <em>request=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.obj_delete_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Deletes an entire list of objects.</p>
@@ -889,8 +895,8 @@ provided data.</p>
 <div class="section" id="obj-delete">
 <h3><tt class="docutils literal"><span class="pre">obj_delete</span></tt><a class="headerlink" href="#obj-delete" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.obj_delete(self, request=None, **kwargs):</tt></dt>
+<dt id="Resource.obj_delete">
+<tt class="descclassname">Resource.</tt><tt class="descname">obj_delete</tt><big>(</big><em>self</em>, <em>request=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.obj_delete" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Deletes a single object.</p>
@@ -901,18 +907,45 @@ provided data.</p>
 <div class="section" id="create-response">
 <h3><tt class="docutils literal"><span class="pre">create_response</span></tt><a class="headerlink" href="#create-response" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.create_response(self, request, data):</tt></dt>
+<dt id="Resource.create_response">
+<tt class="descclassname">Resource.</tt><tt class="descname">create_response</tt><big>(</big><em>self</em>, <em>request</em>, <em>data</em><big>)</big><a class="headerlink" href="#Resource.create_response" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Extracts the common &#8220;which-format/serialize/return-response&#8221; cycle.</p>
 <p>Mostly a useful shortcut/hook.</p>
 </div>
+<div class="section" id="is-valid">
+<h3><tt class="docutils literal"><span class="pre">is_valid</span></tt><a class="headerlink" href="#is-valid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="Resource.is_valid">
+<tt class="descclassname">Resource.</tt><tt class="descname">is_valid</tt><big>(</big><em>self</em>, <em>bundle</em>, <em>request=None</em><big>)</big><a class="headerlink" href="#Resource.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Handles checking if the data provided by the user is valid.</p>
+<p>Mostly a hook, this uses class assigned to <tt class="docutils literal"><span class="pre">validation</span></tt> from
+<tt class="docutils literal"><span class="pre">Resource._meta</span></tt>.</p>
+<p>If validation fails, an error is raised with the error messages
+serialized inside it.</p>
+</div>
+<div class="section" id="rollback">
+<h3><tt class="docutils literal"><span class="pre">rollback</span></tt><a class="headerlink" href="#rollback" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="Resource.rollback">
+<tt class="descclassname">Resource.</tt><tt class="descname">rollback</tt><big>(</big><em>self</em>, <em>bundles</em><big>)</big><a class="headerlink" href="#Resource.rollback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Given the list of bundles, delete all objects pertaining to those
+bundles.</p>
+<p>This needs to be implemented at the user level. No exceptions should
+be raised if possible.</p>
+<p><tt class="docutils literal"><span class="pre">ModelResource</span></tt> includes a full working version specific to Django&#8217;s
+<tt class="docutils literal"><span class="pre">Models</span></tt>.</p>
+</div>
 <div class="section" id="get-list">
 <h3><tt class="docutils literal"><span class="pre">get_list</span></tt><a class="headerlink" href="#get-list" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.get_list(self, request, **kwargs):</tt></dt>
+<dt id="Resource.get_list">
+<tt class="descclassname">Resource.</tt><tt class="descname">get_list</tt><big>(</big><em>self</em>, <em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.get_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Returns a serialized list of resources.</p>
@@ -923,8 +956,8 @@ set and serializes it.</p>
 <div class="section" id="get-detail">
 <h3><tt class="docutils literal"><span class="pre">get_detail</span></tt><a class="headerlink" href="#get-detail" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.get_detail(self, request, **kwargs):</tt></dt>
+<dt id="Resource.get_detail">
+<tt class="descclassname">Resource.</tt><tt class="descname">get_detail</tt><big>(</big><em>self</em>, <em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.get_detail" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Returns a single serialized resource.</p>
@@ -935,8 +968,8 @@ set and serializes it.</p>
 <div class="section" id="put-list">
 <h3><tt class="docutils literal"><span class="pre">put_list</span></tt><a class="headerlink" href="#put-list" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.put_list(self, request, **kwargs):</tt></dt>
+<dt id="Resource.put_list">
+<tt class="descclassname">Resource.</tt><tt class="descname">put_list</tt><big>(</big><em>self</em>, <em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.put_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Replaces a collection of resources with another collection.</p>
@@ -947,8 +980,8 @@ with the provided the data to create the new collection.</p>
 <div class="section" id="put-detail">
 <h3><tt class="docutils literal"><span class="pre">put_detail</span></tt><a class="headerlink" href="#put-detail" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.put_detail(self, request, **kwargs):</tt></dt>
+<dt id="Resource.put_detail">
+<tt class="descclassname">Resource.</tt><tt class="descname">put_detail</tt><big>(</big><em>self</em>, <em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.put_detail" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Either updates an existing resource or creates a new one with the
@@ -961,8 +994,8 @@ If an existing resource is modified, return <tt class="docutils literal"><span c
 <div class="section" id="post-list">
 <h3><tt class="docutils literal"><span class="pre">post_list</span></tt><a class="headerlink" href="#post-list" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.post_list(self, request, **kwargs):</tt></dt>
+<dt id="Resource.post_list">
+<tt class="descclassname">Resource.</tt><tt class="descname">post_list</tt><big>(</big><em>self</em>, <em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.post_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Creates a new resource/object with the provided data.</p>
@@ -973,8 +1006,8 @@ with the new resource&#8217;s location.</p>
 <div class="section" id="post-detail">
 <h3><tt class="docutils literal"><span class="pre">post_detail</span></tt><a class="headerlink" href="#post-detail" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.post_detail(self, request, **kwargs):</tt></dt>
+<dt id="Resource.post_detail">
+<tt class="descclassname">Resource.</tt><tt class="descname">post_detail</tt><big>(</big><em>self</em>, <em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.post_detail" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Creates a new subcollection of the resource under a resource.</p>
@@ -985,8 +1018,8 @@ aren&#8217;t self-referential.</p>
 <div class="section" id="delete-list">
 <h3><tt class="docutils literal"><span class="pre">delete_list</span></tt><a class="headerlink" href="#delete-list" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.delete_list(self, request, **kwargs):</tt></dt>
+<dt id="Resource.delete_list">
+<tt class="descclassname">Resource.</tt><tt class="descname">delete_list</tt><big>(</big><em>self</em>, <em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.delete_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Destroys a collection of resources/objects.</p>
@@ -996,8 +1029,8 @@ aren&#8217;t self-referential.</p>
 <div class="section" id="delete-detail">
 <h3><tt class="docutils literal"><span class="pre">delete_detail</span></tt><a class="headerlink" href="#delete-detail" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.delete_detail(self, request, **kwargs):</tt></dt>
+<dt id="Resource.delete_detail">
+<tt class="descclassname">Resource.</tt><tt class="descname">delete_detail</tt><big>(</big><em>self</em>, <em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.delete_detail" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Destroys a single resource/object.</p>
@@ -1008,8 +1041,8 @@ If the resource did not exist, return <tt class="docutils literal"><span class="
 <div class="section" id="get-schema">
 <h3><tt class="docutils literal"><span class="pre">get_schema</span></tt><a class="headerlink" href="#get-schema" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.get_schema(self, request, **kwargs):</tt></dt>
+<dt id="Resource.get_schema">
+<tt class="descclassname">Resource.</tt><tt class="descname">get_schema</tt><big>(</big><em>self</em>, <em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.get_schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Returns a serialized form of the schema of the resource.</p>
@@ -1020,8 +1053,8 @@ to HTTP GET.</p>
 <div class="section" id="get-multiple">
 <h3><tt class="docutils literal"><span class="pre">get_multiple</span></tt><a class="headerlink" href="#get-multiple" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.get_multiple(self, request, **kwargs):</tt></dt>
+<dt id="Resource.get_multiple">
+<tt class="descclassname">Resource.</tt><tt class="descname">get_multiple</tt><big>(</big><em>self</em>, <em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Resource.get_multiple" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Returns a serialized list of resources based on the identifiers
@@ -1041,8 +1074,8 @@ operations of the resource.</p>
 <div class="section" id="should-skip-field">
 <h3><tt class="docutils literal"><span class="pre">should_skip_field</span></tt><a class="headerlink" href="#should-skip-field" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.should_skip_field(cls, field):</tt></dt>
+<dt id="ModelResource.should_skip_field">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">should_skip_field</tt><big>(</big><em>cls</em>, <em>field</em><big>)</big><a class="headerlink" href="#ModelResource.should_skip_field" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p><em>Class method</em></p>
@@ -1052,8 +1085,8 @@ contributed ApiFields.</p>
 <div class="section" id="api-field-from-django-field">
 <h3><tt class="docutils literal"><span class="pre">api_field_from_django_field</span></tt><a class="headerlink" href="#api-field-from-django-field" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.api_field_from_django_field(cls, f, default=CharField):</tt></dt>
+<dt id="ModelResource.api_field_from_django_field">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">api_field_from_django_field</tt><big>(</big><em>cls</em>, <em>f</em>, <em>default=CharField</em><big>)</big><a class="headerlink" href="#ModelResource.api_field_from_django_field" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p><em>Class method</em></p>
@@ -1063,8 +1096,8 @@ Django type.</p>
 <div class="section" id="get-fields">
 <h3><tt class="docutils literal"><span class="pre">get_fields</span></tt><a class="headerlink" href="#get-fields" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.get_fields(cls, fields=None, excludes=None):</tt></dt>
+<dt id="ModelResource.get_fields">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">get_fields</tt><big>(</big><em>cls</em>, <em>fields=None</em>, <em>excludes=None</em><big>)</big><a class="headerlink" href="#ModelResource.get_fields" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p><em>Class method</em></p>
@@ -1074,8 +1107,8 @@ additional fields based on the associated model.</p>
 <div class="section" id="id3">
 <h3><tt class="docutils literal"><span class="pre">build_filters</span></tt><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.build_filters(self, filters=None):</tt></dt>
+<dt id="ModelResource.build_filters">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">build_filters</tt><big>(</big><em>self</em>, <em>filters=None</em><big>)</big><a class="headerlink" href="#ModelResource.build_filters" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Given a dictionary of filters, create the necessary ORM-level filters.</p>
@@ -1097,8 +1130,8 @@ additional fields based on the associated model.</p>
 <div class="section" id="id4">
 <h3><tt class="docutils literal"><span class="pre">apply_sorting</span></tt><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.apply_sorting(self, obj_list, options=None):</tt></dt>
+<dt id="ModelResource.apply_sorting">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">apply_sorting</tt><big>(</big><em>self</em>, <em>obj_list</em>, <em>options=None</em><big>)</big><a class="headerlink" href="#ModelResource.apply_sorting" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Given a dictionary of options, apply some ORM-level sorting to the
@@ -1110,8 +1143,8 @@ field name) or descending (the field name with a <tt class="docutils literal"><s
 <div class="section" id="id5">
 <h3><tt class="docutils literal"><span class="pre">get_object_list</span></tt><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.get_object_list(self, request):</tt></dt>
+<dt id="ModelResource.get_object_list">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">get_object_list</tt><big>(</big><em>self</em>, <em>request</em><big>)</big><a class="headerlink" href="#ModelResource.get_object_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A ORM-specific implementation of <tt class="docutils literal"><span class="pre">get_object_list</span></tt>.</p>
@@ -1121,8 +1154,8 @@ overrides.</p>
 <div class="section" id="id6">
 <h3><tt class="docutils literal"><span class="pre">obj_get_list</span></tt><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.obj_get_list(self, filters=None, **kwargs):</tt></dt>
+<dt id="ModelResource.obj_get_list">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">obj_get_list</tt><big>(</big><em>self</em>, <em>filters=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#ModelResource.obj_get_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A ORM-specific implementation of <tt class="docutils literal"><span class="pre">obj_get_list</span></tt>.</p>
@@ -1132,8 +1165,8 @@ the query.</p>
 <div class="section" id="id7">
 <h3><tt class="docutils literal"><span class="pre">obj_get</span></tt><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.obj_get(self, **kwargs):</tt></dt>
+<dt id="ModelResource.obj_get">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">obj_get</tt><big>(</big><em>self</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#ModelResource.obj_get" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A ORM-specific implementation of <tt class="docutils literal"><span class="pre">obj_get</span></tt>.</p>
@@ -1143,8 +1176,8 @@ the instance.</p>
 <div class="section" id="id8">
 <h3><tt class="docutils literal"><span class="pre">obj_create</span></tt><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.obj_create(self, bundle, **kwargs):</tt></dt>
+<dt id="ModelResource.obj_create">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">obj_create</tt><big>(</big><em>self</em>, <em>bundle</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#ModelResource.obj_create" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A ORM-specific implementation of <tt class="docutils literal"><span class="pre">obj_create</span></tt>.</p>
@@ -1152,8 +1185,8 @@ the instance.</p>
 <div class="section" id="id9">
 <h3><tt class="docutils literal"><span class="pre">obj_update</span></tt><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.obj_update(self, bundle, **kwargs):</tt></dt>
+<dt id="ModelResource.obj_update">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">obj_update</tt><big>(</big><em>self</em>, <em>bundle</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#ModelResource.obj_update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A ORM-specific implementation of <tt class="docutils literal"><span class="pre">obj_update</span></tt>.</p>
@@ -1161,8 +1194,8 @@ the instance.</p>
 <div class="section" id="id10">
 <h3><tt class="docutils literal"><span class="pre">obj_delete_list</span></tt><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.obj_delete_list(self, **kwargs):</tt></dt>
+<dt id="ModelResource.obj_delete_list">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">obj_delete_list</tt><big>(</big><em>self</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#ModelResource.obj_delete_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A ORM-specific implementation of <tt class="docutils literal"><span class="pre">obj_delete_list</span></tt>.</p>
@@ -1171,19 +1204,30 @@ the instance.</p>
 <div class="section" id="id11">
 <h3><tt class="docutils literal"><span class="pre">obj_delete</span></tt><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.obj_delete(self, **kwargs):</tt></dt>
+<dt id="ModelResource.obj_delete">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">obj_delete</tt><big>(</big><em>self</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#ModelResource.obj_delete" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>A ORM-specific implementation of <tt class="docutils literal"><span class="pre">obj_delete</span></tt>.</p>
 <p>Takes optional <tt class="docutils literal"><span class="pre">kwargs</span></tt>, which are used to narrow the query to find
 the instance.</p>
 </div>
+<div class="section" id="id12">
+<h3><tt class="docutils literal"><span class="pre">rollback</span></tt><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="ModelResource.rollback">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">rollback</tt><big>(</big><em>self</em>, <em>bundles</em><big>)</big><a class="headerlink" href="#ModelResource.rollback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>A ORM-specific implementation of <tt class="docutils literal"><span class="pre">rollback</span></tt>.</p>
+<p>Given the list of bundles, delete all models pertaining to those
+bundles.</p>
+</div>
 <div class="section" id="save-m2m">
 <h3><tt class="docutils literal"><span class="pre">save_m2m</span></tt><a class="headerlink" href="#save-m2m" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.save_m2m(self, bundle):</tt></dt>
+<dt id="ModelResource.save_m2m">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">save_m2m</tt><big>(</big><em>self</em>, <em>bundle</em><big>)</big><a class="headerlink" href="#ModelResource.save_m2m" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Handles the saving of related M2M data.</p>
@@ -1192,11 +1236,11 @@ main instance, which is why this isn&#8217;t a part of the main <tt class="docut
 <p>Currently slightly inefficient in that it will clear out the whole
 relation and recreate the related data as needed.</p>
 </div>
-<div class="section" id="id12">
-<h3><tt class="docutils literal"><span class="pre">get_resource_uri</span></tt><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3><tt class="docutils literal"><span class="pre">get_resource_uri</span></tt><a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt>
-<tt class="descname">Resource.get_resource_uri(self, bundle_or_obj):</tt></dt>
+<dt id="ModelResource.get_resource_uri">
+<tt class="descclassname">ModelResource.</tt><tt class="descname">get_resource_uri</tt><big>(</big><em>self</em>, <em>bundle_or_obj</em><big>)</big><a class="headerlink" href="#ModelResource.get_resource_uri" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Handles generating a resource URI for a single resource.</p>
@@ -1232,6 +1276,7 @@ relation and recreate the related data as needed.</p>
 <li><a class="reference internal" href="#serializer"><tt class="docutils literal"><span class="pre">serializer</span></tt></a></li>
 <li><a class="reference internal" href="#authentication"><tt class="docutils literal"><span class="pre">authentication</span></tt></a></li>
 <li><a class="reference internal" href="#authorization"><tt class="docutils literal"><span class="pre">authorization</span></tt></a></li>
+<li><a class="reference internal" href="#validation"><tt class="docutils literal"><span class="pre">validation</span></tt></a></li>
 <li><a class="reference internal" href="#cache"><tt class="docutils literal"><span class="pre">cache</span></tt></a></li>
 <li><a class="reference internal" href="#throttle"><tt class="docutils literal"><span class="pre">throttle</span></tt></a></li>
 <li><a class="reference internal" href="#allowed-methods"><tt class="docutils literal"><span class="pre">allowed_methods</span></tt></a></li>
@@ -1295,6 +1340,8 @@ relation and recreate the related data as needed.</p>
 <li><a class="reference internal" href="#obj-delete-list"><tt class="docutils literal"><span class="pre">obj_delete_list</span></tt></a></li>
 <li><a class="reference internal" href="#obj-delete"><tt class="docutils literal"><span class="pre">obj_delete</span></tt></a></li>
 <li><a class="reference internal" href="#create-response"><tt class="docutils literal"><span class="pre">create_response</span></tt></a></li>
+<li><a class="reference internal" href="#is-valid"><tt class="docutils literal"><span class="pre">is_valid</span></tt></a></li>
+<li><a class="reference internal" href="#rollback"><tt class="docutils literal"><span class="pre">rollback</span></tt></a></li>
 <li><a class="reference internal" href="#get-list"><tt class="docutils literal"><span class="pre">get_list</span></tt></a></li>
 <li><a class="reference internal" href="#get-detail"><tt class="docutils literal"><span class="pre">get_detail</span></tt></a></li>
 <li><a class="reference internal" href="#put-list"><tt class="docutils literal"><span class="pre">put_list</span></tt></a></li>
@@ -1320,8 +1367,9 @@ relation and recreate the related data as needed.</p>
 <li><a class="reference internal" href="#id9"><tt class="docutils literal"><span class="pre">obj_update</span></tt></a></li>
 <li><a class="reference internal" href="#id10"><tt class="docutils literal"><span class="pre">obj_delete_list</span></tt></a></li>
 <li><a class="reference internal" href="#id11"><tt class="docutils literal"><span class="pre">obj_delete</span></tt></a></li>
+<li><a class="reference internal" href="#id12"><tt class="docutils literal"><span class="pre">rollback</span></tt></a></li>
 <li><a class="reference internal" href="#save-m2m"><tt class="docutils literal"><span class="pre">save_m2m</span></tt></a></li>
-<li><a class="reference internal" href="#id12"><tt class="docutils literal"><span class="pre">get_resource_uri</span></tt></a></li>
+<li><a class="reference internal" href="#id13"><tt class="docutils literal"><span class="pre">get_resource_uri</span></tt></a></li>
 </ul>
 </li>
 </ul>
