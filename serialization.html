@@ -177,6 +177,42 @@ various format methods (i.e. <tt class="docutils literal"><span class="pre">to_j
 <p>If not available on the current <tt class="docutils literal"><span class="pre">Serializer</span></tt>, returns
 <tt class="docutils literal"><span class="pre">application/json</span></tt> by default.</p>
 </div>
+<div class="section" id="format-datetime">
+<h3><tt class="docutils literal"><span class="pre">format_datetime</span></tt><a class="headerlink" href="#format-datetime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt>
+<tt class="descname">Serializer.format_datetime(data):</tt></dt>
+<dd></dd></dl>
+
+<p>A hook to control how datetimes are formatted.</p>
+<p>Can be overridden at the <tt class="docutils literal"><span class="pre">Serializer</span></tt> level (<tt class="docutils literal"><span class="pre">datetime_formatting</span></tt>)
+or globally (via <tt class="docutils literal"><span class="pre">settings.TASTYPIE_DATETIME_FORMATTING</span></tt>).</p>
+<p>Default is <tt class="docutils literal"><span class="pre">iso-8601</span></tt>, which looks like &#8220;2010-12-16T03:02:14&#8221;.</p>
+</div>
+<div class="section" id="format-date">
+<h3><tt class="docutils literal"><span class="pre">format_date</span></tt><a class="headerlink" href="#format-date" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt>
+<tt class="descname">Serializer.format_date(data):</tt></dt>
+<dd></dd></dl>
+
+<p>A hook to control how dates are formatted.</p>
+<p>Can be overridden at the <tt class="docutils literal"><span class="pre">Serializer</span></tt> level (<tt class="docutils literal"><span class="pre">datetime_formatting</span></tt>)
+or globally (via <tt class="docutils literal"><span class="pre">settings.TASTYPIE_DATETIME_FORMATTING</span></tt>).</p>
+<p>Default is <tt class="docutils literal"><span class="pre">iso-8601</span></tt>, which looks like &#8220;2010-12-16&#8221;.</p>
+</div>
+<div class="section" id="format-time">
+<h3><tt class="docutils literal"><span class="pre">format_time</span></tt><a class="headerlink" href="#format-time" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt>
+<tt class="descname">Serializer.format_time(data):</tt></dt>
+<dd></dd></dl>
+
+<p>A hook to control how times are formatted.</p>
+<p>Can be overridden at the <tt class="docutils literal"><span class="pre">Serializer</span></tt> level (<tt class="docutils literal"><span class="pre">datetime_formatting</span></tt>)
+or globally (via <tt class="docutils literal"><span class="pre">settings.TASTYPIE_DATETIME_FORMATTING</span></tt>).</p>
+<p>Default is <tt class="docutils literal"><span class="pre">iso-8601</span></tt>, which looks like &#8220;03:02:14&#8221;.</p>
+</div>
 <div class="section" id="serialize">
 <h3><tt class="docutils literal"><span class="pre">serialize</span></tt><a class="headerlink" href="#serialize" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
@@ -335,6 +371,9 @@ implemented.</p>
 <li><a class="reference internal" href="#implementing-your-own-serializer">Implementing Your Own Serializer</a></li>
 <li><a class="reference internal" href="#serializer-methods"><tt class="docutils literal"><span class="pre">Serializer</span></tt> Methods</a><ul>
 <li><a class="reference internal" href="#get-mime-for-format"><tt class="docutils literal"><span class="pre">get_mime_for_format</span></tt></a></li>
+<li><a class="reference internal" href="#format-datetime"><tt class="docutils literal"><span class="pre">format_datetime</span></tt></a></li>
+<li><a class="reference internal" href="#format-date"><tt class="docutils literal"><span class="pre">format_date</span></tt></a></li>
+<li><a class="reference internal" href="#format-time"><tt class="docutils literal"><span class="pre">format_time</span></tt></a></li>
 <li><a class="reference internal" href="#serialize"><tt class="docutils literal"><span class="pre">serialize</span></tt></a></li>
 <li><a class="reference internal" href="#deserialize"><tt class="docutils literal"><span class="pre">deserialize</span></tt></a></li>
 <li><a class="reference internal" href="#to-simple"><tt class="docutils literal"><span class="pre">to_simple</span></tt></a></li>

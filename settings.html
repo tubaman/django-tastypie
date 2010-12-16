@@ -110,6 +110,17 @@ need this method, you will have to override the URLconf to meet your needs.</p>
 </div>
 <p>Defaults to <tt class="xref docutils literal"><span class="pre">False</span></tt>.</p>
 </div>
+<div class="section" id="tastypie-datetime-formatting">
+<h2><tt class="docutils literal"><span class="pre">TASTYPIE_DATETIME_FORMATTING</span></tt><a class="headerlink" href="#tastypie-datetime-formatting" title="Permalink to this headline">¶</a></h2>
+<p><strong>Optional</strong></p>
+<p>This setting allows you to globally choose what format your datetime/date/time
+data will be formatted in. Valid options are <tt class="docutils literal"><span class="pre">iso-8601</span></tt> &amp; <tt class="docutils literal"><span class="pre">rfc-2822</span></tt>.</p>
+<p>An example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">TASTYPIE_DATETIME_FORMATTING</span> <span class="o">=</span> <span class="s">&#39;rfc-2822&#39;</span>
+</pre></div>
+</div>
+<p>Defaults to <tt class="docutils literal"><span class="pre">iso-8601</span></tt>.</p>
+</div>
 </div>
 
 
@@ -125,6 +136,7 @@ need this method, you will have to override the URLconf to meet your needs.</p>
 <li><a class="reference internal" href="#tastypie-full-debug"><tt class="docutils literal"><span class="pre">TASTYPIE_FULL_DEBUG</span></tt></a></li>
 <li><a class="reference internal" href="#tastypie-canned-error"><tt class="docutils literal"><span class="pre">TASTYPIE_CANNED_ERROR</span></tt></a></li>
 <li><a class="reference internal" href="#tastypie-allow-missing-slash"><tt class="docutils literal"><span class="pre">TASTYPIE_ALLOW_MISSING_SLASH</span></tt></a></li>
+<li><a class="reference internal" href="#tastypie-datetime-formatting"><tt class="docutils literal"><span class="pre">TASTYPIE_DATETIME_FORMATTING</span></tt></a></li>
 </ul>
 </li>
 </ul>
