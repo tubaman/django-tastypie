@@ -54,8 +54,8 @@
 <div class="section" id="api-limit-per-page">
 <h2><tt class="docutils literal"><span class="pre">API_LIMIT_PER_PAGE</span></tt><a class="headerlink" href="#api-limit-per-page" title="Permalink to this headline">¶</a></h2>
 <p><strong>Optional</strong></p>
-<p>This setting controls what the default number of records Tastypie will show
-in a list view is.</p>
+<p>This setting controls the default number of records Tastypie will show
+in a list view.</p>
 <p>This is only used when a user does not specify a <tt class="docutils literal"><span class="pre">limit</span></tt> GET parameter and
 the <tt class="docutils literal"><span class="pre">Resource</span></tt> subclass has not overridden the number to be shown.</p>
 <p>An example:</p>
@@ -72,9 +72,9 @@ the <tt class="docutils literal"><span class="pre">Resource</span></tt> subclass
 technical 500 is displayed.</p>
 <p>If not set or set to <tt class="xref docutils literal"><span class="pre">False</span></tt>, Tastypie will return a serialized response.
 If <tt class="docutils literal"><span class="pre">settings.DEBUG</span></tt> is <tt class="xref docutils literal"><span class="pre">True</span></tt>, you&#8217;ll get the actual exception message plus
-a traceback. If <tt class="docutils literal"><span class="pre">settings.DEBUG</span></tt> is <tt class="xref docutils literal"><span class="pre">False</span></tt>, Tastypie will <tt class="docutils literal"><span class="pre">mail_admins</span></tt>
-and provide a canned error message (which you can override with
-<tt class="docutils literal"><span class="pre">TASTYPIE_CANNED_ERROR</span></tt>) in the response.</p>
+a traceback. If <tt class="docutils literal"><span class="pre">settings.DEBUG</span></tt> is <tt class="xref docutils literal"><span class="pre">False</span></tt>, Tastypie will call
+<tt class="docutils literal"><span class="pre">mail_admins()</span></tt> and provide a canned error message (which you can override
+with <tt class="docutils literal"><span class="pre">TASTYPIE_CANNED_ERROR</span></tt>) in the response.</p>
 <p>An example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">TASTYPIE_FULL_DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
@@ -90,7 +90,7 @@ unhandled exception is raised and <tt class="docutils literal"><span class="pre"
 <div class="highlight-python"><div class="highlight"><pre><span class="n">TASTYPIE_CANNED_ERROR</span> <span class="o">=</span> <span class="s">&quot;Oops, we broke it!&quot;</span>
 </pre></div>
 </div>
-<p>Defaults to <tt class="docutils literal"><span class="pre">Sorry,</span> <span class="pre">this</span> <span class="pre">request</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">processed.</span> <span class="pre">Please</span> <span class="pre">try</span> <span class="pre">again</span> <span class="pre">later.</span></tt>.</p>
+<p>Defaults to <tt class="docutils literal"><span class="pre">&quot;Sorry,</span> <span class="pre">this</span> <span class="pre">request</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">processed.</span> <span class="pre">Please</span> <span class="pre">try</span> <span class="pre">again</span> <span class="pre">later.&quot;</span></tt>.</p>
 </div>
 <div class="section" id="tastypie-allow-missing-slash">
 <h2><tt class="docutils literal"><span class="pre">TASTYPIE_ALLOW_MISSING_SLASH</span></tt><a class="headerlink" href="#tastypie-allow-missing-slash" title="Permalink to this headline">¶</a></h2>
@@ -101,8 +101,8 @@ integrating with other systems.</p>
 emit HTTP 302 redirects.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">This settings causes the <tt class="docutils literal"><span class="pre">Resource.get_multiple</span></tt> to fail. If you need this
-method, you will have to override the URLconf to meet your needs.</p>
+<p class="last">This setting causes the <tt class="docutils literal"><span class="pre">Resource.get_multiple()</span></tt> method to fail. If you
+need this method, you will have to override the URLconf to meet your needs.</p>
 </div>
 <p>An example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">TASTYPIE_ALLOW_MISSING_SLASH</span> <span class="o">=</span> <span class="bp">True</span>

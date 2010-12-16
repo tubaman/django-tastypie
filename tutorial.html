@@ -53,14 +53,14 @@
 <p>Tastypie is a reusable app (that is, it relies only on it&#8217;s own code and
 focuses on providing just a REST-style API) and is suitable for providing an
 API to any application without having to modify the sources of that app.</p>
-<p>Not everyone&#8217;s needs are the same, so Tastypie goes out of it&#8217;s way to provide
-plenty of hooks for overridding or extending how it works.</p>
+<p>Not everyone&#8217;s needs are the same, so Tastypie goes out of its way to provide
+plenty of hooks for overriding or extending how it works.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If you hit a stumbling block, you can join
 <a class="reference external" href="irc://irc.freenode.net/tastypie">#tastypie on irc.freenode.net</a> to get help.</p>
 </div>
-<p>This tutorial assumes that you have a basic understand of Django as well as
+<p>This tutorial assumes that you have a basic understanding of Django as well as
 how proper REST-style APIs ought to work. We will only explain the portions
 of the code that are Tastypie-specific in any kind of depth.</p>
 <p>For example purposes, we&#8217;ll be adding an API to a simple blog application.
@@ -121,7 +121,7 @@ directory in. What ever works best for you.</li>
 </blockquote>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Once tastypie passes version 1.0, it will become officially available on
+<p class="last">Once tastypie reaches version 1.0, it will become officially available on
 <a class="reference external" href="http://pypi.python.org/">PyPI</a>. Once that is the case, a <tt class="docutils literal"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">tastypie</span></tt> or <tt class="docutils literal"><span class="pre">sudo</span>
 <span class="pre">easy_install</span> <span class="pre">tastypie</span></tt> should be available.</p>
 </div>
@@ -132,7 +132,7 @@ directory in. What ever works best for you.</li>
 <tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt>. This isn&#8217;t strictly necessary, as Tastypie has only one
 non-required model, but may ease usage.</p>
 <p>You have the option to set up a number of settings (see <a class="reference internal" href="settings.html"><em>Tastypie Settings</em></a>) but
-most have sane defaults and are not required unless you need to tweak their
+they all have sane defaults and are not required unless you need to tweak their
 values.</p>
 </div>
 <div class="section" id="creating-resources">
@@ -162,9 +162,9 @@ much like the way Django&#8217;s <tt class="docutils literal"><span class="pre">
 provided, it is automatically generated off the classname, removing any
 instances of <tt class="xref py py-class docutils literal"><span class="pre">Resource</span></tt> and lowercasing the string. So
 <tt class="docutils literal"><span class="pre">EntryResource</span></tt> would become just <tt class="docutils literal"><span class="pre">entry</span></tt>.</p>
-<p class="last">It&#8217;s included in this example for clarity, especially when looking at
-the URLs, but you may feel free to omit it if you&#8217;re comfortable with
-this behavior.</p>
+<p class="last">We&#8217;ve included the <tt class="docutils literal"><span class="pre">resource_name</span></tt> attribute in this example for clarity,
+especially when looking at the URLs, but you should feel free to omit it if
+you&#8217;re comfortable with the automatic behavior.</p>
 </div>
 </div>
 <div class="section" id="hooking-up-the-resource-s">
@@ -218,7 +218,7 @@ Tastypie does <strong>NOT</strong> introspect related data because it has no way
 how you want to represent that data.</p>
 <p>And since that relation isn&#8217;t there, any attempt to POST/PUT new data will
 fail, because no <tt class="docutils literal"><span class="pre">user</span></tt> is present, which is a required field on the model.</p>
-<p>This is easy to fix, but we&#8217;ll need to flesh out out API a little more.</p>
+<p>This is easy to fix, but we&#8217;ll need to flesh out our API a little more.</p>
 </div>
 <div class="section" id="creating-more-resources">
 <h2>Creating More Resources<a class="headerlink" href="#creating-more-resources" title="Permalink to this headline">¶</a></h2>
