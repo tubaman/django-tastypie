@@ -1,0 +1,135 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Debugging Tastypie &mdash; Tastypie v0.9.5-beta documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.9.5-beta',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Tastypie v0.9.5-beta documentation" href="index.html" />
+    <link rel="next" title="Sites Using Tastypie" href="who_uses.html" />
+    <link rel="prev" title="Tastypie Cookbook" href="cookbook.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="who_uses.html" title="Sites Using Tastypie"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cookbook.html" title="Tastypie Cookbook"
+             accesskey="P">previous</a> |</li>
+        <li><a href="toc.html">Tastypie v0.9.5-beta documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="debugging-tastypie">
+<h1>Debugging Tastypie<a class="headerlink" href="#debugging-tastypie" title="Permalink to this headline">¶</a></h1>
+<p>There are some common problems people run into when using Tastypie for the first
+time. Some of the common problems and things to try appear below.</p>
+<div class="section" id="i-m-getting-xml-output-in-my-browser-but-i-want-json-output">
+<h2>&#8220;I&#8217;m getting XML output in my browser but I want JSON output!&#8221;<a class="headerlink" href="#i-m-getting-xml-output-in-my-browser-but-i-want-json-output" title="Permalink to this headline">¶</a></h2>
+<p>This is actually not a bug and JSON support is present in your <tt class="docutils literal"><span class="pre">Resource</span></tt>.
+This issue is that Tastypie respects the <tt class="docutils literal"><span class="pre">Accept</span></tt> header your browser sends.
+Most browsers send something like:</p>
+<div class="highlight-python"><pre>Accept: application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5</pre>
+</div>
+<p>Note that <tt class="docutils literal"><span class="pre">application/xml</span></tt> comes first, which is a format that Tastypie
+handles by default, hence why you receive XML.</p>
+<p>If you use <tt class="docutils literal"><span class="pre">curl</span></tt> from the command line, you should receive JSON by default:</p>
+<div class="highlight-python"><pre>curl http://localhost:8000/api/v1/</pre>
+</div>
+<p>If you want JSON in the browser, simply append <tt class="docutils literal"><span class="pre">?format=json</span></tt> to your URL.
+Tastypie always respects this override first, before it falls back to the
+<tt class="docutils literal"><span class="pre">Accept</span></tt> header.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="toc.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Debugging Tastypie</a><ul>
+<li><a class="reference internal" href="#i-m-getting-xml-output-in-my-browser-but-i-want-json-output">&#8220;I&#8217;m getting XML output in my browser but I want JSON output!&#8221;</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cookbook.html"
+                        title="previous chapter">Tastypie Cookbook</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="who_uses.html"
+                        title="next chapter">Sites Using Tastypie</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/debugging.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="who_uses.html" title="Sites Using Tastypie"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cookbook.html" title="Tastypie Cookbook"
+             >previous</a> |</li>
+        <li><a href="toc.html">Tastypie v0.9.5-beta documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Daniel Lindsley, Cody Soyland &amp; Matt Croydon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>
