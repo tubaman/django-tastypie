@@ -1578,7 +1578,7 @@ class ModelResource(Resource):
                 related_bundle.obj.save()
                 related_objs.append(related_bundle.obj)
             
-            related_mngr.add(*related_objs)
+            related_mngr.extend(related_objs)
     
     def get_resource_uri(self, bundle_or_obj):
         """
