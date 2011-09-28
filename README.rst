@@ -4,23 +4,31 @@ django-tastypie
 
 Creating delicious APIs for Django apps since 2010.
 
-Currently in beta (v0.8.2) but being used actively in production on several
+Currently in beta (v1.0.0-beta) but being used actively in production on several
 sites.
 
 
 Requirements
 ============
 
-* Python 2.4+
-* Django 1.1+
+Required
+--------
+
+* Python 2.5+
+* Django 1.2+ (May work on Django 1.1)
 * mimeparse 0.1.3+ (http://code.google.com/p/mimeparse/)
 
   * Older versions will work, but their behavior on JSON/JSONP is a touch wonky.
 
-* dateutil (http://labix.org/python-dateutil)
+* dateutil (http://labix.org/python-dateutil) >= 1.5, < 2.0
+
+Optional
+--------
+
+* python_digest (https://bitbucket.org/akoha/python-digest/)
 * lxml (http://codespeak.net/lxml/) if using the XML serializer
 * pyyaml (http://pyyaml.org/) if using the YAML serializer
-* uuid (present in 2.5+, downloadable from http://pypi.python.org/pypi/uuid/) if using the ``ApiKey`` authentication
+* biplist (http://explorapp.com/biplist/) if using the binary plist serializer
 
 
 What's It Look Like?
@@ -32,22 +40,22 @@ A basic example looks like::
     # ============
     from tastypie.resources import ModelResource
     from myapp.models import Entry
-    
-    
+
+
     class EntryResource(ModelResource):
         class Meta:
             queryset = Entry.objects.all()
-    
-    
+
+
     # urls.py
     # =======
     from django.conf.urls.defaults import *
     from tastypie.api import Api
     from myapp.api import EntryResource
-    
+
     v1_api = Api(api_name='v1')
     v1_api.register(EntryResource())
-    
+
     urlpatterns = patterns('',
         # The normal jazz here then...
         (r'^api/', include(v1_api.urls)),
@@ -58,7 +66,7 @@ supports all CRUD operations in a RESTful way. JSON/XML/YAML support is already
 there, and it's easy to add related data/authentication/caching.
 
 You can find more in the documentation at
-http://toastdriven.github.com/django-tastypie/.
+http://django-tastypie.readthedocs.org/.
 
 
 Why tastypie?
@@ -90,4 +98,4 @@ Reference Material
 * http://jacobian.org/writing/rest-worst-practices/
 
 :author: Daniel Lindsley
-:date: 2010/06/19
+:date: 2011/09/16
